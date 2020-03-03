@@ -1,0 +1,56 @@
+<html>
+
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/p5@0.10.2/lib/p5.js"></script>
+    <script src="p5jumpercode.js"></script>
+
+    <style> 
+        body{
+            padding: 0; 
+            margin: 0; 
+
+        }
+    
+    </style>
+
+</head>
+
+<body>
+    <script>
+        var w = innerWidth;
+        var h = innerHeight;
+        var jumper = new jumper();
+
+        function setup() {
+            createCanvas(w,h);
+            
+        }
+
+        function draw() {
+            console.log(jumper.x, jumper.y);
+            clear();
+            jumper.show();
+            jumper.update();
+
+            if ((keyIsDown(37)) && (jumper.x != 0)) { // when left arrow pressed and when the jumper is NOT beyond 0 then...
+                jumper.x -= 4 ; 
+                //whatever the jumper is at it will minus 4 units from the that position (horizontal)
+
+            }
+            if ((keyIsDown(39)) && (jumper.x < w )) { // when left arrow pressed and when the jumper is NOT beyond 0 then...
+                jumper.x += 4 ; 
+
+            }
+
+        }
+            
+        function keyPressed(){
+            if (keyCode ===32){
+                jumper.up();
+            }
+            
+        }
+    </script>
+</body>
+
+</html>
